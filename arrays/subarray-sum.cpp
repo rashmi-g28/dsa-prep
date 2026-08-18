@@ -22,6 +22,21 @@ Constraints:
 1 ≤ k ≤ arr.size()
 */
 
+// Kadane's algorithm
+    int maxSubarraySum(vector<int>& arr){
+        int n=arr.size();
+        int maxSum=INT_MIN, curSum=0;
+        for(int i=0;i<n;i++){
+            curSum+=arr[i];
+            maxSum=max(maxSum,curSum);
+            if(curSum<0) curSum=0;
+            
+        }
+        return maxSum;
+    }
+
+
+
 int maxSubarraySum(vector<int>& arr, int k) {
         int n=arr.size();
         int win_sum=0;
